@@ -1,5 +1,5 @@
-<div class="book-card">
-    <div class="cover">
+<div class="book-card" [ngClass]="{ 'list-view': isListView }">
+  <div class="cover">
     <img
       *ngIf="book.cover && !imageFailed"
       [src]="book.cover"

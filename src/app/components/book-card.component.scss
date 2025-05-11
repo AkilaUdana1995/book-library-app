@@ -1,8 +1,8 @@
 .book-card {
   width: 180px;
   height: 320px;
-  border: 1px solid #ddd;
   padding: 1rem;
+  border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
   display: flex;
@@ -15,6 +15,15 @@
     transform: translateY(-6px) scale(1.03);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     border-color: #007bff;
+  }
+
+  &.list-view {
+    flex-direction: row;
+    width: 100%;
+    height: 240px; // Increased height for better image scaling
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
   }
 }
 
@@ -37,6 +46,19 @@
   .no-image {
     color: #777;
     font-size: 0.9rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .book-card.list-view & {
+    width: 60%;
+    height: 100%;
+    max-height: 100%;
+    flex-shrink: 0;
+
+    img {
+      object-fit: contain; // ⬅️ Fix stretched image
+    }
   }
 }
 
@@ -53,21 +75,22 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-}
 
-.no-image {
-  color: #888;
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 1rem;
+  .book-card.list-view & {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1rem;
+    flex: 1;
+  }
 }
-
 
 .actions {
   display: flex;
   justify-content: center;
   gap: 0.4rem;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
 
   a.btn,
   button.btn {
@@ -75,5 +98,23 @@
     padding: 0.25rem 0.5rem;
     line-height: 1.2;
     border-radius: 4px;
+    width: 100px; // ✅ consistent width in grid view
+    text-align: center;
+  }
+
+  .book-card.list-view & {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0.5rem;
+
+    a.btn,
+    button.btn {
+      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+      width: 140px; // ✅ more space in list view
+    }
   }
 }
+
+

@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class BookCardComponent {
   @Input() book!: Book;
+  @Input() isListView: boolean = false;
   @Output() delete = new EventEmitter<string>(); // emits book ID
   imageFailed = false;
 
