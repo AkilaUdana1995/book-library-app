@@ -1,7 +1,21 @@
-<app-header
-  [searchTerm]="searchTerm"
-  (search)="onSearch($event)"
-  [isGridView]="isGridView"
-  (viewToggled)="toggleView()"
-></app-header>
+<div class="container">
+  <app-header
+    [searchTerm]="searchTerm"
+    (search)="onSearch($event)"
+    [isGridView]="isGridView"
+    (viewToggled)="toggleView()"
+  ></app-header>
 
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="!filteredBooks.length && !error">No books found.</div>
+
+  <a [routerLink]="['/add-new-book']" class="add-button">➕ Add New Book</a>
+
+  <div [ngClass]="{ 'book-list-grid': isGridView, 'book-list-list': !isGridView }" *ngIf="filteredBooks.length">
+    <app-book-card
+      *ngFor="let book of filteredBooks"
+      [book]="book"
+      (delete)="deleteBook($event)"
+    ></app-book-card>
+  </div>
+</div>

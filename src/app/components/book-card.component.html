@@ -7,9 +7,19 @@
     <p>🏷️ {{ book.category }}</p>
   </div>
 
-  <div class="text-end mt-2">
+  <!-- <div class="text-end mt-2">
     <a [routerLink]="['/edit-book', book.id]" class="btn btn-sm btn-outline-primary">
       ✏️ Edit
     </a>
-  </div>
+  </div> -->
+
+  <div class="text-end mt-2 d-flex justify-content-end gap-2">
+  <a [routerLink]="['/edit-book', book.id]" class="btn btn-sm btn-outline-primary">
+    ✏️ Edit
+  </a>
+  <button (click)="confirmDelete()" class="btn btn-sm btn-outline-danger">
+    🗑️ Delete
+  </button>
+</div>
+
 </div>

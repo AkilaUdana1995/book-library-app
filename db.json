@@ -1,14 +1,6 @@
 {
   "books": [
     {
-      "id": "1",
-      "title": "Clean Code",
-      "author": "Robert C. Martin",
-      "rating": 5,
-      "cover": "https://m.media-amazon.com/images/I/41jEbK-jG+L._SX374_BO1,204,203,200_.jpg",
-      "category": "Software Engineering"
-    },
-    {
       "id": "2",
       "title": "The Pragmatic Programmer",
       "author": "Andy Hunt XXXX",
@@ -87,14 +79,6 @@
       "rating": 1,
       "category": "this is test",
       "cover": "https://covers.openlibrary.org/b/id/240727-S.jpg"
-    },
-    {
-      "id": "3c40",
-      "title": "akila udana",
-      "author": "akila udana",
-      "rating": 1,
-      "category": "test",
-      "cover": "fefgrwg"
     }
   ]
 }

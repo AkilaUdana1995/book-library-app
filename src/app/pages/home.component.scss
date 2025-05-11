@@ -1,0 +1,27 @@
+.container {
+  padding: 2rem;
+}
+
+.book-list-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.book-list-list {
+  display: block;
+}
+
+.add-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: red;
+}
