@@ -1,19 +1,18 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { Book } from '../models/book.model';
-import { Router } from '@angular/router';
-import { RouterModule } from '@angular/router';
-
+import { BookService } from '../services/book.service.service';
 
 @Component({
   selector: 'app-book-form',
   standalone: true,
-  imports: [CommonModule, FormsModule,RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './book-form.component.html',
   styleUrls: ['./book-form.component.scss']
 })
-export class BookFormComponent {
+export class BookFormComponent implements OnInit {
   @Output() add = new EventEmitter<Book>();
 
   book: Book = {
@@ -24,7 +23,36 @@ export class BookFormComponent {
     cover: ''
   };
 
-  constructor(private router: Router) {}
+  editMode: boolean = false;
+  bookId: string | null = null;
+  bookLoaded: boolean = false;
+
+  constructor(
+    private router: Router,
+    private bookService: BookService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    const idParam = this.route.snapshot.paramMap.get('id');
+    if (idParam) {
+      this.editMode = true;
+      this.bookId = idParam;
+
+      this.bookService.getBookById(this.bookId).subscribe({
+        next: (book) => {
+          this.book = { ...book };
+          this.bookLoaded = true;
+        },
+        error: () => {
+          alert('Failed to load book details.');
+          this.router.navigate(['/']);
+        }
+      });
+    } else {
+      this.bookLoaded = true; // for add mode
+    }
+  }
 
   submitForm() {
     if (
@@ -34,9 +62,19 @@ export class BookFormComponent {
       this.book.category &&
       this.book.cover
     ) {
-      this.add.emit({ ...this.book });
-      this.resetForm();
-      this.router.navigate(['/']); // Redirect back to home after adding
+      const request = this.editMode && this.bookId !== null
+        ? this.bookService.updateBook(this.bookId, this.book)
+        : this.bookService.addBook(this.book);
+
+      request.subscribe({
+        next: () => {
+          this.resetForm();
+          this.router.navigate(['/']);
+        },
+        error: () => {
+          alert(this.editMode ? 'Failed to update book.' : 'Failed to add book.');
+        }
+      });
     }
   }
 

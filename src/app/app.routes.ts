@@ -4,5 +4,6 @@ import { BookFormComponent } from './components/book-form.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'add-new-book', component: BookFormComponent }
+    { path: 'add-new-book', component: BookFormComponent },
+     { path: 'edit-book/:id', component: BookFormComponent } // 🆕 Edit route
 ];

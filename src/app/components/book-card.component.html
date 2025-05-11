@@ -1,1 +1,15 @@
-<p>book-card works!</p>
+<div class="book-card">
+  <img [src]="book.cover" alt="{{ book.title }}" class="cover" />
+  <div>
+    <h3>{{ book.title }}</h3>
+    <p>👤 {{ book.author }}</p>
+    <p>⭐ {{ book.rating }}</p>
+    <p>🏷️ {{ book.category }}</p>
+  </div>
+
+  <div class="text-end mt-2">
+    <a [routerLink]="['/edit-book', book.id]" class="btn btn-sm btn-outline-primary">
+      ✏️ Edit
+    </a>
+  </div>
+</div>
