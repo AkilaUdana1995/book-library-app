@@ -4,11 +4,15 @@ import { Book } from '../models/book.model';
 import { BookService } from '../services/book.service.service';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../components/header.component';
+import { BookCardComponent } from '../components/book-card.component';
+import { BookFormComponent } from '../components/book-form.component';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent],
+  imports: [CommonModule, FormsModule, HeaderComponent, BookCardComponent,RouterModule],
   template: `
     <div class="container">
       <app-header
@@ -18,19 +22,17 @@ import { HeaderComponent } from '../components/header.component';
         (viewToggled)="toggleView()"
       ></app-header>
 
+      
       <div *ngIf="error" class="error">{{ error }}</div>
       <div *ngIf="!filteredBooks.length && !error">No books found.</div>
 
+      <a [routerLink]="['/add-new-book']" class="add-button">➕ Add New Book</a>
+
       <div [ngClass]="{ 'book-list-grid': isGridView, 'book-list-list': !isGridView }" *ngIf="filteredBooks.length">
-        <div *ngFor="let book of filteredBooks" class="book-card">
-          <img [src]="book.cover" alt="{{ book.title }}" class="cover" />
-          <div>
-            <h3>{{ book.title }}</h3>
-            <p>👤 {{ book.author }}</p>
-            <p>⭐ {{ book.rating }}</p>
-            <p>🏷️ {{ book.category }}</p>
-          </div>
-        </div>
+        <app-book-card
+          *ngFor="let book of filteredBooks"
+          [book]="book"
+        ></app-book-card>
       </div>
     </div>
   `,
@@ -49,29 +51,16 @@ import { HeaderComponent } from '../components/header.component';
       display: block;
     }
 
-    .book-card {
-      width: 180px;
-      border: 1px solid #ddd;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-    }
+    .add-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
 
-    .book-list-list .book-card {
-      display: flex;
-      gap: 1rem;
-      width: 100%;
-    }
-
-    .cover {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-    }
-
-    .book-list-list .cover {
-      width: 100px;
-    }
 
     .error {
       color: red;
@@ -107,5 +96,17 @@ export class HomeComponent implements OnInit {
 
   toggleView() {
     this.isGridView = !this.isGridView;
+  }
+
+  addBook(newBook: Book) {
+    this.bookService.addBook(newBook).subscribe({
+      next: (addedBook) => {
+        this.books.push(addedBook);
+        this.filteredBooks = [...this.books];
+      },
+      error: () => {
+        this.error = 'Failed to add book';
+      }
+    });
   }
 }
