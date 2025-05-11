@@ -41,14 +41,6 @@
       "category": "JavaScript"
     },
     {
-      "id": "7",
-      "title": "Effective Java",
-      "author": "Joshua Bloch",
-      "rating": 5,
-      "cover": "https://images-na.ssl-images-amazon.com/images/I/81kqrwS1nNL._AC_UL600_SR600,600_.jpg",
-      "category": "Java"
-    },
-    {
       "id": "8",
       "title": "The Clean Coder rt",
       "author": "Robert C. Martin",
@@ -57,28 +49,44 @@
       "category": "Software Engineering"
     },
     {
-      "id": "9",
-      "title": "s",
-      "author": "s",
+      "id": "b1cb",
+      "title": "test555",
+      "author": "555",
       "rating": 1,
-      "category": "swwwwwwww",
-      "cover": "s"
+      "category": "555",
+      "cover": "555"
     },
     {
-      "id": "f79d",
-      "title": "r",
-      "author": "r",
-      "rating": 1,
-      "category": "r",
-      "cover": "efr"
+      "id": "ec10",
+      "title": "momo2",
+      "author": "44444",
+      "rating": 3,
+      "category": "444",
+      "cover": "555"
     },
     {
-      "id": "d1fb",
-      "title": "this is test run 454",
-      "author": "this is test",
+      "id": "6deb",
+      "title": "momo",
+      "author": "1",
       "rating": 1,
-      "category": "this is test",
-      "cover": "https://covers.openlibrary.org/b/id/240727-S.jpg"
+      "category": "1",
+      "cover": "1"
+    },
+    {
+      "id": "fea1",
+      "title": "yyyy",
+      "author": "y",
+      "rating": 1,
+      "category": "y",
+      "cover": "y"
+    },
+    {
+      "id": "3ddf",
+      "title": "789",
+      "author": "g",
+      "rating": 1,
+      "category": "g",
+      "cover": "gr"
     }
   ]
 }
