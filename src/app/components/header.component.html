@@ -1,13 +1,16 @@
 <header class="header">
   <h1>📚 Book Library</h1>
 
-  <input
-    type="text"
-    [(ngModel)]="searchTerm"
-    (input)="onSearchChange()"
-    placeholder="Search by title or author..."
-    class="search-input"
-  />
+  <div class="search-container">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="onSearchChange()"
+      placeholder="Search by title or author..."
+      class="search-input"
+    />
+  </div>
 
   <button (click)="toggleView()" class="toggle-button">
     {{ isGridView ? '🔳 Grid View' : '📄 List View' }}
