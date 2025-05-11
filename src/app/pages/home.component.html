@@ -11,7 +11,10 @@
 
   <a [routerLink]="['/add-new-book']" class="add-button">➕ Add New Book</a>
 
-  <div [ngClass]="{ 'book-list-grid': isGridView, 'book-list-list': !isGridView }" *ngIf="filteredBooks.length">
+  <div
+    *ngIf="filteredBooks.length"
+    [ngClass]="{ 'book-list-grid': isGridView, 'book-list-list': !isGridView }"
+  >
     <app-book-card
       *ngFor="let book of filteredBooks"
       [book]="book"

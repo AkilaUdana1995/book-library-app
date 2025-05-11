@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 export class BookCardComponent {
   @Input() book!: Book;
   @Output() delete = new EventEmitter<string>(); // emits book ID
+  imageFailed = false;
 
   confirmDelete() {
     Swal.fire({
@@ -31,4 +32,9 @@ export class BookCardComponent {
       }
     });
   }
+
+   onImageError() {
+    this.imageFailed = true;
+  }
+
 }
