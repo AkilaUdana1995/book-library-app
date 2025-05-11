@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../components/header.component';
 import { BookCardComponent } from '../components/book-card.component';
 import { RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -58,15 +59,17 @@ export class HomeComponent implements OnInit {
   }
 
   deleteBook(id: string) {
-    this.bookService.deleteBook(id).subscribe({
-      next: () => {
-        this.books = this.books.filter(book => book.id !== id);
-        this.filteredBooks = this.filteredBooks.filter(book => book.id !== id);
-        alert('Book deleted successfully ✅');
-      },
-      error: () => {
-        this.error = 'Failed to delete book';
-      }
-    });
-  }
+  this.bookService.deleteBook(id).subscribe({
+    next: () => {
+      this.books = this.books.filter(book => book.id !== id);
+      this.filteredBooks = this.filteredBooks.filter(book => book.id !== id);
+      Swal.fire('Deleted!', 'The book has been removed.', 'success'); // ✅ just 1 alert
+    },
+    error: () => {
+      Swal.fire('Error', 'Failed to delete book.', 'error');
+    }
+  });
+}
+
+
 }

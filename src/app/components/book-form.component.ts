@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { Book } from '../models/book.model';
 import { BookService } from '../services/book.service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-book-form',
@@ -68,8 +69,25 @@ export class BookFormComponent implements OnInit {
 
       request.subscribe({
         next: () => {
-          this.resetForm();
-          this.router.navigate(['/']);
+          if (this.editMode) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Book Updated!',
+              text: `"${this.book.title}" has been successfully updated.`,
+              confirmButtonColor: '#3085d6'
+            }).then(() => {
+              this.router.navigate(['/']);
+            });
+          } else {
+            Swal.fire({
+              icon: 'success',
+              title: 'Book Added!',
+              text: `"${this.book.title}" has been successfully added.`,
+              confirmButtonColor: '#3085d6'
+            }).then(() => {
+              this.router.navigate(['/']);
+            });
+          }
         },
         error: () => {
           alert(this.editMode ? 'Failed to update book.' : 'Failed to add book.');
