@@ -1,3 +1,34 @@
+// .container {
+//   padding: 2rem;
+// }
+
+// .book-list-grid {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 1rem;
+// }
+
+// .book-list-list {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 1rem;
+// }
+
+// .add-button {
+//   display: inline-block;
+//   padding: 0.5rem 1rem;
+//   background: #007bff;
+//   color: white;
+//   border-radius: 4px;
+//   text-decoration: none;
+//   margin-bottom: 1rem;
+// }
+
+// .error {
+//   color: red;
+// }
+
+
 .container {
   padding: 2rem;
 }
@@ -8,6 +39,7 @@
   gap: 1rem;
 }
 
+/* List View */
 .book-list-list {
   display: flex;
   flex-direction: column;
@@ -26,4 +58,69 @@
 
 .error {
   color: red;
+  text-align: center;
 }
+
+
+/* ✅ Responsive Fix for Mobile */
+/* ✅ Responsive Fix for Mobile */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .add-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Grid View: Two cards per row */
+  .book-list-grid app-book-card {
+    width: calc(50% - 0.5rem);
+  }
+
+  /* List View full width */
+  .book-list-list app-book-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem !important;
+    overflow: hidden;
+  }
+
+  app-book-card.list-view .book-card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  app-book-card.list-view .cover {
+    width: 35%;
+    height: 100px;
+    flex-shrink: 0;
+  }
+
+  app-book-card.list-view .details {
+    width: 45%;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  app-book-card.list-view .actions {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.5rem;
+
+    a.btn,
+    button.btn {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.4rem;
+      width: 100%;
+    }
+  }
+}
+

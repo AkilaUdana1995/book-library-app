@@ -2,7 +2,7 @@
   "books": [
     {
       "id": "2",
-      "title": "The Pragmatic Programmer",
+      "title": "The Pragmatic Programmer updated",
       "author": "Andy Hunt XXXX",
       "rating": 4,
       "cover": "https://m.media-amazon.com/images/I/41as+WafrFL._SX258_BO1,204,203,200_.jpg",
@@ -10,7 +10,7 @@
     },
     {
       "id": "3",
-      "title": "Refactoring",
+      "title": "Refactoring4",
       "author": "Martin Fowler",
       "rating": 5,
       "cover": "https://m.media-amazon.com/images/I/41DNuJfahyL._SX396_BO1,204,203,200_.jpg",

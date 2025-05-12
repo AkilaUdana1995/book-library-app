@@ -15,12 +15,14 @@
     *ngIf="filteredBooks.length"
     [ngClass]="{ 'book-list-grid': isGridView, 'book-list-list': !isGridView }"
   >
-   <app-book-card
+<app-book-card
   *ngFor="let book of filteredBooks"
   [book]="book"
   [isListView]="!isGridView"
   (delete)="deleteBook($event)"
+  [ngClass]="{ 'list-view': !isGridView }"
 ></app-book-card>
+
 
   </div>
 </div>
