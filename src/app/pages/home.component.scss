@@ -61,8 +61,6 @@
   text-align: center;
 }
 
-
-/* ✅ Responsive Fix for Mobile */
 /* ✅ Responsive Fix for Mobile */
 @media (max-width: 600px) {
   .container {
@@ -74,53 +72,54 @@
     text-align: center;
   }
 
-  /* Grid View: Two cards per row */
   .book-list-grid app-book-card {
     width: calc(50% - 0.5rem);
   }
 
-  /* List View full width */
   .book-list-list app-book-card {
     width: 100%;
     box-sizing: border-box;
-    padding: 0.75rem !important;
+    padding: 0.5rem !important;
     overflow: hidden;
   }
 
   app-book-card.list-view .book-card {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+    padding: 0.6rem;
+    min-height: auto;
   }
 
   app-book-card.list-view .cover {
-    width: 35%;
-    height: 100px;
-    flex-shrink: 0;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    background: #eee;
   }
 
   app-book-card.list-view .details {
-    width: 45%;
-    font-size: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
+    font-size: 0.75rem;
+    padding: 0.25rem;
   }
 
   app-book-card.list-view .actions {
-    width: 20%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: stretch;
-    gap: 0.5rem;
+    gap: 0.4rem;
 
     a.btn,
     button.btn {
       font-size: 0.7rem;
-      padding: 0.3rem 0.4rem;
-      width: 100%;
+      padding: 0.3rem 0.5rem;
+      flex: 1;
+      max-width: 110px;
     }
   }
 }
+
+
 

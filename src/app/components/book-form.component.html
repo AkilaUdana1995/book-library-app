@@ -1,99 +1,101 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h4 class="card-title mb-4 text-center">
-            {{ editMode ? '✏️ Edit Book' : '📘 Add New Book' }}
-          </h4>
+<div class="form-wrapper">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-10 col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title mb-4 text-center">
+              {{ editMode ? '✏️ Edit Book' : '📘 Add New Book' }}
+            </h4>
 
-          <form #bookForm="ngForm" (ngSubmit)="submitForm()" novalidate>
-            <!-- Title -->
-            <div class="mb-3">
-              <label class="form-label">Title</label>
-              <input
-                [(ngModel)]="book.title"
-                name="title"
-                class="form-control"
-                required
-                #title="ngModel"
-                [ngClass]="{ 'is-invalid': title.invalid && title.touched }"
-              />
-              <div class="invalid-feedback">Title is required</div>
-            </div>
+            <form #bookForm="ngForm" (ngSubmit)="submitForm()" novalidate>
+              <!-- Title -->
+              <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input
+                  [(ngModel)]="book.title"
+                  name="title"
+                  class="form-control"
+                  required
+                  #title="ngModel"
+                  [ngClass]="{ 'is-invalid': title.invalid && title.touched }"
+                />
+                <div class="invalid-feedback">Title is required</div>
+              </div>
 
-            <!-- Author -->
-            <div class="mb-3">
-              <label class="form-label">Author</label>
-              <input
-                [(ngModel)]="book.author"
-                name="author"
-                class="form-control"
-                required
-                #author="ngModel"
-                [ngClass]="{ 'is-invalid': author.invalid && author.touched }"
-              />
-              <div class="invalid-feedback">Author is required</div>
-            </div>
+              <!-- Author -->
+              <div class="mb-3">
+                <label class="form-label">Author</label>
+                <input
+                  [(ngModel)]="book.author"
+                  name="author"
+                  class="form-control"
+                  required
+                  #author="ngModel"
+                  [ngClass]="{ 'is-invalid': author.invalid && author.touched }"
+                />
+                <div class="invalid-feedback">Author is required</div>
+              </div>
 
-            <!-- Rating -->
-            <div class="mb-3">
-              <label class="form-label">Rating</label>
-              <input
-                [(ngModel)]="book.rating"
-                name="rating"
-                type="number"
-                min="1"
-                max="5"
-                class="form-control"
-                required
-                #rating="ngModel"
-                [ngClass]="{ 'is-invalid': rating.invalid && rating.touched }"
-              />
-              <div class="invalid-feedback">Rating (1–5) is required</div>
-            </div>
+              <!-- Rating -->
+              <div class="mb-3">
+                <label class="form-label">Rating</label>
+                <input
+                  [(ngModel)]="book.rating"
+                  name="rating"
+                  type="number"
+                  min="1"
+                  max="5"
+                  class="form-control"
+                  required
+                  #rating="ngModel"
+                  [ngClass]="{ 'is-invalid': rating.invalid && rating.touched }"
+                />
+                <div class="invalid-feedback">Rating (1–5) is required</div>
+              </div>
 
-            <!-- Category -->
-            <div class="mb-3">
-              <label class="form-label">Category</label>
-              <input
-                [(ngModel)]="book.category"
-                name="category"
-                class="form-control"
-                required
-                #category="ngModel"
-                [ngClass]="{ 'is-invalid': category.invalid && category.touched }"
-              />
-              <div class="invalid-feedback">Category is required</div>
-            </div>
+              <!-- Category -->
+              <div class="mb-3">
+                <label class="form-label">Category</label>
+                <input
+                  [(ngModel)]="book.category"
+                  name="category"
+                  class="form-control"
+                  required
+                  #category="ngModel"
+                  [ngClass]="{ 'is-invalid': category.invalid && category.touched }"
+                />
+                <div class="invalid-feedback">Category is required</div>
+              </div>
 
-            <!-- Cover -->
-            <div class="mb-3">
-              <label class="form-label">Cover Image URL</label>
-              <input
-                [(ngModel)]="book.cover"
-                name="cover"
-                class="form-control"
-                required
-                #cover="ngModel"
-                [ngClass]="{ 'is-invalid': cover.invalid && cover.touched }"
-              />
-              <div class="invalid-feedback">Cover image URL is required</div>
-            </div>
+              <!-- Cover -->
+              <div class="mb-3">
+                <label class="form-label">Cover Image URL</label>
+                <input
+                  [(ngModel)]="book.cover"
+                  name="cover"
+                  class="form-control"
+                  required
+                  #cover="ngModel"
+                  [ngClass]="{ 'is-invalid': cover.invalid && cover.touched }"
+                />
+                <div class="invalid-feedback">Cover image URL is required</div>
+              </div>
 
-            <!-- Submit Button -->
-            <button
-              type="submit"
-              class="btn btn-success w-100"
-              [disabled]="bookForm.invalid"
-            >
-              {{ editMode ? 'Update Book' : 'Add Book' }}
-            </button>
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="btn btn-success w-100"
+                [disabled]="bookForm.invalid"
+              >
+                {{ editMode ? 'Update Book' : 'Add Book' }}
+              </button>
 
-            <div class="text-center mt-3">
-              <a routerLink="/" class="btn btn-link">← Back to Home</a>
-            </div>
-          </form>
+              <div class="text-center mt-3">
+                <a routerLink="/" class="btn btn-link">← Back to Home</a>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
