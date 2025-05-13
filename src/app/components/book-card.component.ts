@@ -29,7 +29,7 @@ export class BookCardComponent {
       cancelButtonColor: '#3085d6',
     }).then(result => {
       if (result.isConfirmed) {
-        this.delete.emit(this.book.id!);  // ✅ delegate actual deletion to parent
+        this.delete.emit(this.book.id!);  //elegate actual deletion to parent
       }
     });
   }

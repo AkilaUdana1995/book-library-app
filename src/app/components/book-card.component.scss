@@ -57,7 +57,7 @@
     flex-shrink: 0;
 
     img {
-      object-fit: contain; // ⬅️ Fix stretched image
+      object-fit: contain; //Fix stretched image
     }
   }
 }
@@ -98,7 +98,7 @@
     padding: 0.25rem 0.5rem;
     line-height: 1.2;
     border-radius: 4px;
-    width: 100px; // ✅ consistent width in grid view
+    width: 100px; //onsistent width in grid view
     text-align: center;
   }
 
@@ -112,7 +112,7 @@
     button.btn {
       font-size: 0.85rem;
       padding: 0.4rem 1rem;
-      width: 140px; // ✅ more space in list view
+      width: 140px; //more space in list view
     }
   }
 }

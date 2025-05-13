@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
     next: () => {
       this.books = this.books.filter(book => book.id !== id);
       this.filteredBooks = this.filteredBooks.filter(book => book.id !== id);
-      Swal.fire('Deleted!', 'The book has been removed.', 'success'); // ✅ just 1 alert
+      Swal.fire('Deleted!', 'The book has been removed.', 'success'); //just 1 alert
     },
     error: () => {
       Swal.fire('Error', 'Failed to delete book.', 'error');
